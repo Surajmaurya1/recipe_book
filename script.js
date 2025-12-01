@@ -13,42 +13,47 @@ button.addEventListener("click", function () {
 logo.addEventListener("click", () => {
   window.location.reload();
 });
+
 let fetchmeal = async () => {
   if (input.value.trim() === "") {
     alert("Input field is Empty!!");
     return;
   }
-  let data = await fetch(
-    `https://www.themealdb.com/api/json/v1/1/search.php?s=${input.value}`
-  );
-  let response = await data.json();
-  
-  if (!response.meals) {
-  display.innerHTML = "<h2>No meals found</h2>";
-  return;
-}
-  display.innerHTML = "";
-  response.meals.forEach((meal) => {
-    console.log(meal);
+  try {
+    let data = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=${input.value}`
+    );
+    let response = await data.json();
 
-    let mealcard = document.createElement("div");
-    mealcard.classList.add("mealcard");
-    mealcard.innerHTML = `<img src = ${meal.strMealThumb}>
+    if (!response.meals) {
+      display.innerHTML = "<h2>No meals found</h2>";
+      return;
+    }
+    display.innerHTML = "";
+    response.meals.forEach((meal) => {
+      console.log(meal);
+
+      let mealcard = document.createElement("div");
+      mealcard.classList.add("mealcard");
+      mealcard.innerHTML = `<img src = ${meal.strMealThumb}>
  <h3> ${meal.strMeal}</h3>
  <p>${meal.strArea} Dish</p>
  <P> Category-${meal.strCategory}</p>
   `;
 
-    let viewrecipebutton = document.createElement("button");
-    viewrecipebutton.classList.add("viewrecipebutton");
-    viewrecipebutton.textContent = "View Recipe";
-    mealcard.appendChild(viewrecipebutton);
-    display.appendChild(mealcard);
+      let viewrecipebutton = document.createElement("button");
+      viewrecipebutton.classList.add("viewrecipebutton");
+      viewrecipebutton.textContent = "View Recipe";
+      mealcard.appendChild(viewrecipebutton);
+      display.appendChild(mealcard);
 
-    viewrecipebutton.addEventListener("click", () => {
-      openpopup(meal);
+      viewrecipebutton.addEventListener("click", () => {
+        openpopup(meal);
+      });
     });
-  });
+  } catch (err) {
+    alert(err);
+  }
 };
 
 let showingredents = (meal) => {
