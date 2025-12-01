@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background: radial-gradient(circle at 20% 20%, rgba(0,0,0,0.4), transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(1,11,29,0.5), transparent 60%),
+                linear-gradient(135deg, #687175, #323a3d);
+    background-color: #0a0f1a;
+    background-attachment: fixed;
+    color: #f8f9fa;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+}
+
+.nav {
+    width: 100%;
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10vh;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo i {
+    margin-left: .5vh;
+    font-size: 4.5vh;
+}
+
+.logo h2 {
+    font-size: 4.5vh;
+    color: rgba(255, 255, 255, 0.925);
+    text-shadow: 0 0 8px rgba(255,255,255,0.2);
+}
+
+.logo img {
+    margin-top: 4vh;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+}
+
+
+
+.search input {
+    padding: 0.8rem 1rem;
+    margin: 0.5rem 0.5rem;
+
+    background: #ffffff;             
+    border: 1px solid #ccc;
+    border-radius: 12px;
+
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search input::placeholder {
+    color: #777;
+}
+
+.search input:focus {
+    background: #fff;
+    border: 1px solid #888;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.search button {
+    padding: 0.9rem 1.6rem;
+    background: #007bff;              
+    border: none;
+    border-radius: 12px;
+
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.search button:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
+}
+
+
+
+.hero {
+    width: 100%;
+    min-height: calc(100vh - 13vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.hero h1 {
+    margin-top: -13vh;
+    font-size: 5vh;
+    padding: 0 2vh;
+    text-transform: lowercase;
+    color: rgba(255, 255, 255, 0.705);
+    text-shadow: 0 0 8px rgba(207, 207, 207, 0.2);
+}
+
+
+.mealcard img,
+.mealcard h3,
+.mealcard p {
+    margin-bottom: .5vh;
+}
+
+.mealcard {
+    width: 250px;
+    padding: 1rem;
+
+    background: #ffffff;        
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+    color: #333;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.mealcard img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.mealcard-body {
+    padding: 1rem;
+}
+
+.mealcard-body h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+
+.mealcard-body p {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.4;
+}
+
+
+
+.viewrecipebutton {
+    margin-top: .5vh;
+    padding: 0.6rem 1.2rem;
+
+    background: #28a745;            
+    border: none;
+    border-radius: 12px;
+
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.viewrecipebutton:hover {
+    background: #1e7e34;
+}
+
+
+.recipecontainer::-webkit-scrollbar {
+    display: none;
+}
+
+.recipecontainer {
+    display: none;
+    width: 40%;
+    height: 65%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+
+    background: #ffffff;               
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    color: #333;
+
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.recipecontainer i {
+    color: #333;
+    font-size: 4vh;
+    cursor: pointer;
+    position: absolute;
+    top: 10%;
+    left: 90%;
+}
+
+#recipecontent h2,
+#recipecontent p,
+#recipecontent ul,
+#recipecontent a {
+    margin-bottom: 2vh;
+}
+
+#recipecontent a {
+    color: #007bff;
+}
+
+/* ----------------------------------------------------
+   📱 MOBILE + TABLET RESPONSIVE DESIGN
+-----------------------------------------------------*/
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 0 2rem;
+    height: auto;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .logo img {
+    height: 70px;
+    width: 70px;
+    margin-top: 1rem;
+  }
+
+  .logo h2 {
+    font-size: 3vh;
+  }
+
+  .search input {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .search button {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    padding: 1rem;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 3.5vh;
+    margin-top: -5vh;
+  }
+
+  .mealcard {
+    width: 90%;
+  }
+
+  .recipecontainer {
+    width: 90%;
+    height: 75%;
+    padding: 1rem;
+  }
+
+  .recipecontainer i {
+    left: 85%;
+    font-size: 3vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 1rem;
+  }
+
+  .logo img {
+    height: 60px;
+    width: 60px;
+    margin-top: 0.5rem;
+  }
+
+  .logo h2 {
+    font-size: 2.8vh;
+  }
+
+  .search input,
+  .search button {
+    width: 100%;
+  }
+
+  .mealcard {
+    width: 100%;
+    padding: 0.8rem;
+  }
+
+  .mealcard img {
+    height: 150px;
+  }
+
+  .recipecontainer {
+    width: 95%;
+    height: 80%;
+    padding: 1rem;
+  }
+
+  .recipecontainer i {
+    left: 82%;
+  }
+}
