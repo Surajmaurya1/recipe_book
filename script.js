@@ -22,7 +22,11 @@ let fetchmeal = async () => {
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${input.value}`
   );
   let response = await data.json();
-
+  
+  if (!response.meals) {
+  display.innerHTML = "<h2>No meals found</h2>";
+  return;
+}
   display.innerHTML = "";
   response.meals.forEach((meal) => {
     console.log(meal);
